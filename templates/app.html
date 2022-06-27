@@ -10,7 +10,7 @@ function makerequest() {
         success: function(response) {
             document.getElementById("a").setAttribute('value', response);
             document.getElementById("c").setAttribute('value', response);
-	    setTimeout(makerequest, 5555500);
+	    setTimeout(makerequest, 500);
         }
     });
 }
