@@ -1,9 +1,11 @@
 #!/bin/bash
 
 cd /root
-echo 'kalle' > updatestatus
+echo '1' > updatestatus
 cd /home/rock
 rm -r root
 git clone https://github.com/McDaisy/root
 cd root
 cp -r * /root
+cd /root
+echo '0' > updatestatus
