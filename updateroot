@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "0" /root/updatestatus
 cd /home/rock
 rm -r root
 git clone https://github.com/McDaisy/root
