@@ -8,12 +8,11 @@ function startupdate() {
     document.getElementById('indexContent').style.display = "none";
     document.getElementById('updatestatus').style.display = "block";
     $.ajax(
-{
+    {
         url: '/update',
-        success: function(response) {
-            setTimeout(updatestatus(), 100);
-        }
+        type: "GET"
     });
+    updatestatus();
 }
 
 function updatestatus() {
@@ -50,7 +49,7 @@ function updatestatus() {
      <a href="{{ url_for('no') }}"><button class="button" style="height:60px;width:70px">No</button></a>
   </div>
    <div id="updatestatus" style="display:none;">
-        <p id="updatestatusvalue" align="center"> </p>
+        <p id="updatestatusvalue" align="center" styl> </p>
    </div>
 
 {% endblock %}
