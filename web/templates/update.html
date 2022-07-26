@@ -2,6 +2,28 @@
 
 {% block body %}
 
+<script language="JavaScript" type="text/javascript" src=" {{ url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
+<script>
+function makerequest() {
+    $.ajax(
+{
+        url: '/volume',
+        success: function(response) {
+                if((document.getElementById("a").getAttribute('value') != response ||
+                document.getElementById("c").getAttribute('value') != response) && response != '')
+                {
+                    document.getElementById("a").setAttribute('value', response);
+                    document.getElementById("c").setAttribute('value', response);
+                }
+                setTimeout(makerequest, 100);
+        }
+    });
+}
+  window.onload = function(){
+  makerequest();
+}
+</script>
+
   <div id="indexContent">
      <p align="center"><a href="/"><img src="/static/gdis.png"></a></p>
      <p align="center"><label>&nbsp;</label></p>
