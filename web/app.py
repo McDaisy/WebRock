@@ -14,7 +14,9 @@ def index():
          vol = f.read()
     with open("/root/input", "r") as f:
          input = f.read()
-    return render_template('app.html', vol=vol, input=input, filter=filter)
+    with open("/root/updatestatus", "r") as f:
+         input = f.read()
+    return render_template('app.html', vol=vol, input=input, filter=filter, updatestatus=updatestatus)
 
 @app.route('/wifi')
 def wifi():
@@ -162,8 +164,16 @@ def reboot():
 
 @app.route('/update', methods = ['GET', 'POST'])
 def update():
-    os.system('bash -c "sleep 1; updateroot"')
+    os.system('bash -c "sleep 1; updateroot"')]
     return redirect('/')
+
+@app.route('/updatestatus', methods = ['GET', 'POST'])
+def updatestatus():
+    if request.method == 'POST':
+        u = request.form["u"]
+        with open("/root/updatestatus", "u") as f:
+            stat = f.read()
+            return stat
 
 @app.route('/no', methods = ['GET', 'POST'])
 def no():
