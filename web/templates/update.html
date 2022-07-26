@@ -21,13 +21,11 @@ function updatestatus() {
         url: '/updatestatus',
         success: function(response) {
             if(response==0) {
-                document.getElementById('updatestatusvalue').value = "0";
+                document.getElementById('updatestatusvalue').innerHTML = "0";
             } else if(response==1) {
-                document.getElementById('updatestatusvalue').value = "1";
+                document.getElementById('updatestatusvalue').innerHTML = "1";
             } else if(response==2) {
-                document.getElementById('updatestatusvalue').value = "2";
-                document.getElementById('indexContent').style.display = "block";
-                document.getElementById('updatestatus').style.display = "none";
+                document.getElementById('updatestatusvalue').innerHTML = "2";
             }
             if(response!=2) {
                 setTimeout(updatestatus, 100);
@@ -48,8 +46,8 @@ function updatestatus() {
      <a href="{{ url_for('update') }}"><button class="button" style="height:60px;width:70px">Yes</button></a> &nbsp; &nbsp; &nbsp;
      <a href="{{ url_for('no') }}"><button class="button" style="height:60px;width:70px">No</button></a>
   </div>
-   <div id="updatestatus" style="display:none;">
-        <p id="updatestatusvalue" align="center" styl> </p>
+   <div id="updatestatus" style="display:none; color:white">
+        <p id="updatestatusvalue" align="center" style="color:white"> </p>
    </div>
 
 {% endblock %}
