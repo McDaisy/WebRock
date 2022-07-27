@@ -21,11 +21,11 @@ function updatestatus() {
         url: '/updatestatus',
         success: function(response) {
             if(response==0 || response=="") {
-                document.getElementById('updatestatusvalue').innerHTML = "Installerar uppdatering 10%";
+                document.getElementById('updatestatusvalue').innerHTML = "Installing update 10%";
             } else if(response==1) {
-                document.getElementById('updatestatusvalue').innerHTML = "Installerar uppdatering 60%";
+                document.getElementById('updatestatusvalue').innerHTML = "Installing update 60%";
             } else if(response==2) {
-                document.getElementById('updatestatusvalue').innerHTML = "Installerar uppdatering 100%";
+                document.getElementById('updatestatusvalue').innerHTML = "Update successfull 100%";
                 document.getElementById('updatestatusvalue').style.color = "green";
             }
             if(response!=2) {
