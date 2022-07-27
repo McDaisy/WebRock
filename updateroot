@@ -1,7 +1,9 @@
 #!/bin/bash
 
+sleep 3
 cd /root
 echo "1" > updatestatus
+sleep 3
 cd /home/rock
 rm -r root
 git clone https://github.com/McDaisy/root
@@ -9,3 +11,5 @@ cd root
 cp -r * /root
 cd /root
 echo "2" > updatestatus
+sleep 3
+echo "0" > updatestatus
